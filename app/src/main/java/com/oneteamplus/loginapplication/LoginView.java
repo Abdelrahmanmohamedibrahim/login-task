@@ -14,7 +14,7 @@ public class LoginView extends ViewModel {
 
     MutableLiveData <ResModel> postsMutableLiveData = new MutableLiveData<>(); //saving data
     public void login(RequestModel r){
-        LoginClient.getINSTANCE().login(r).enqueue(new Callback<ResModel>() {
+        DataClient.getINSTANCE().login(r).enqueue(new Callback<ResModel>() {
 
 
             @Override

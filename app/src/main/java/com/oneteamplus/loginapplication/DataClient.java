@@ -1,32 +1,30 @@
 package com.oneteamplus.loginapplication;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LoginClient {
-
+public class DataClient {
     private static final String BASE_URL = "https://test.geidea.net:9090/";
-    private RequestInterface requestInterface;
-    private static LoginClient INSTANCE;
+    private DataInterface dataInterface;
+    private static DataClient INSTANCE;
 
-    public LoginClient() {
+    public DataClient() {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
-       requestInterface = retrofit.create(RequestInterface.class); //connecting to interface and fill it with https
+        dataInterface = retrofit.create(DataInterface.class); //connecting to interface and fill it with https
     }
 
-    public static LoginClient getINSTANCE() {
+    public static DataClient getINSTANCE() {
         if (null == INSTANCE){
-            INSTANCE = new LoginClient();
+            INSTANCE = new DataClient();
         }
         return INSTANCE;
     }
+    public Call<ViewDataModel> displayReport(ResModel r){
+        return  dataInterface.displayReport(r);
+    }
+
     public Call<ResModel> login(RequestModel r){
-        return  requestInterface.Login(r);
+        return  dataInterface.Login(r);
     }
 }
-
-
-

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Login Application</string>
-    <string name="name">Name</string>
-    <string name="password" />
+    <string name="id">ID</string>
+    <string name="password" >
+        Password
+    </string>
+
 </resources>
